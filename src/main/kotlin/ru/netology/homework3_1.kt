@@ -2,11 +2,10 @@ package ru.netology
 
 fun fotMinutes(seconds: Int): String {
     val minutes = seconds / 60
-    return when (minutes) {
+    return when (minutes % 10) {
         in 0..1 -> "только что"
-        21, 31, 41, 51 -> "минуту назад"
-        2, 3, 4, 22, 23, 24, 32 -> "$minutes минуты назад"
-        33, 34, 42, 43, 44, 52, 53, 54 -> "$minutes минуты назад"
+        1 -> "минуту назад"
+        2, 3, 4 -> "$minutes минуты назад"
         else -> "$minutes минут назад"
     }
 }
@@ -33,7 +32,7 @@ fun forDays(seconds: Int): String {
 fun agoToText(seconds: Int) {
     when (seconds) {
         in 0..3600 -> println("Был(а) " + fotMinutes(seconds) + "")
-        in 3601..86399 -> println("Был(а) " + forHours(seconds) + "")
+        in 3601..86400 -> println("Был(а) " + forHours(seconds) + "")
         else -> println("Был(а) " + forDays(seconds) + "")
     }
 
