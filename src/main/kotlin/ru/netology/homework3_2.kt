@@ -6,10 +6,7 @@ const val MAESTRO = "Maestro"
 const val VISA = "Visa"
 const val MIR = "Мир"
 
-fun moneyTransferCommission(moneyTransfer: Int, typeCard: String, transferAmounts: Int = 0): Number {
-
-    println("Размер перевода:$moneyTransfer")
-    println("Тип платежной карты: $typeCard")
+fun moneyTransferCommission(moneyTransfer: Int, typeCard: String = VK_PAY, transferAmounts: Int = 0): Number {
 
     return when (typeCard) {
 
@@ -27,7 +24,7 @@ fun moneyTransferCommission(moneyTransfer: Int, typeCard: String, transferAmount
 
 fun main() {
 
-    println("Комиссия за перевод составит: " + moneyTransferCommission(100_000_00, VK_PAY) + " копеек.")
+    println("Комиссия за перевод составит: " + moneyTransferCommission(100_000_00) + " копеек.")
 }
 
 
